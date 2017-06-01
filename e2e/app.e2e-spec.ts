@@ -1,10 +1,10 @@
-import { PlantingCmsPage } from './app.po';
+import { CoreUIPage } from './app.po';
 
-describe('planting-cms App', () => {
-  let page: PlantingCmsPage;
+describe('core-ui App', function() {
+  let page: CoreUIPage;
 
   beforeEach(() => {
-    page = new PlantingCmsPage();
+    page = new CoreUIPage();
   });
 
   it('should display message saying app works', () => {
