@@ -10,8 +10,8 @@
     <ul class="nav navbar-nav ml-auto">
       <li class="nav-item dropdown" dropdown (onToggle)="toggled($event)">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle>
-          <img src="{{ currentUser.img_heading }}" class="img-avatar" alt="zhiyongf@cn.ibm.com">
-          <span class="hidden-md-down">{{currentUser.nickname || currentUser.owner}}</span>
+          <img src="{{ currentUser?.img_heading || 'assets/img/avatars/8.jpg'}}" class="img-avatar" alt="zhiyongf@cn.ibm.com">
+          <span class="hidden-md-down">{{currentUser?.nickname || currentUser?.owner}}</span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" dropdownMenu aria-labelledby="simple-dropdown">
 
