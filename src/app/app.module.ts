@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { FormsModule} from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { DropdownModule } from 'ng2-bootstrap/dropdown';
@@ -17,6 +19,18 @@ import { AppRoutingModule } from './app.routing';
 
 //Layouts
 import { FullLayoutComponent } from './layouts/full-layout.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component';
+import { AlertCompnent } from './_directives/index';
+import { AlertService, AuthenticationService, UserService } from './_services/index';
+import { AuthGuard } from './_guards/index';
+
+// used to create fack backend
+import { fakeBackendProvider } from './_helpers/index'
+import { MockBackend, MockConnection } from '@angular/http/testing';
+import { BaseRequestOptions } from '@angular/http';
+
 
 @NgModule({
   imports: [
@@ -24,7 +38,9 @@ import { FullLayoutComponent } from './layouts/full-layout.component';
     AppRoutingModule,
     DropdownModule.forRoot(),
     TabsModule.forRoot(),
-    ChartsModule
+    ChartsModule,
+    FormsModule,
+    HttpModule
   ],
   declarations: [
     AppComponent,
@@ -32,12 +48,26 @@ import { FullLayoutComponent } from './layouts/full-layout.component';
     NAV_DROPDOWN_DIRECTIVES,
     BreadcrumbsComponent,
     SIDEBAR_TOGGLE_DIRECTIVES,
-    AsideToggleDirective
+    AsideToggleDirective,
+    AlertCompnent,
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   providers: [{
     provide: LocationStrategy,
-    useClass: HashLocationStrategy
-  }],
+    useClass: HashLocationStrategy,
+  },
+  AuthGuard,
+  AlertService,
+  AuthenticationService,
+  UserService,
+
+  // providers used to create fake backend
+  fakeBackendProvider,
+  MockBackend,
+  BaseRequestOptions
+],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
