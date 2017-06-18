@@ -1,14 +1,7 @@
 export class User {
-  id: number;
-  username: string;
-  nickname: string;
-  gender: string;
-  addr: string;
-  img_heading: string;
+  constructor(public id: number, public username: string, public nickname?: string, public gender?: string, public addr?: string, public img?: string){};
 }
-//
-// export class User {
-//   id: number;
-//   username: string;
-//   profile: Profile;
-// }
+
+export class Gender {
+  constructor(public code: string, public name: string){};
+}

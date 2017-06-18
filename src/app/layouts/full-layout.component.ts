@@ -1,6 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../_services/index';
-import { User } from '../_models/user';
+import { Component, ElementRef, OnInit, ViewContainerRef } from '@angular/core';
+import { Headers, Http, RequestOptions } from '@angular/http';
+import { ModalDirective } from 'ng2-bootstrap/modal/modal.component';
+import { Observable } from 'rxjs/Rx';
+import { error } from 'util';
+import { Router, ActivatedRoute } from '@angular/router'
+
+import { UserService, AlertService } from '../_services/index';
+import { User, Gender, GENDERS } from '../_models/index';
+import { baseUrl } from '../_settings/index'
 
 @Component({
   selector: 'app-dashboard',
@@ -9,10 +16,23 @@ import { User } from '../_models/user';
 export class FullLayoutComponent implements OnInit {
   currentUser: User;
   token: string;
+  genders: Gender[];
+  submmitted = false;
+  files: FileList;
+  returnedUrl: string;
 
-  constructor(private userService: UserService) {
+  constructor(
+    private userService: UserService,
+    private alertService: AlertService,
+    private element: ElementRef,
+    private http: Http,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    console.log('Fuck you: ', this.currentUser);
+    this.token = JSON.parse(localStorage.getItem('token'));
+
+    this.returnedUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   public disabled:boolean = false;
@@ -28,6 +48,50 @@ export class FullLayoutComponent implements OnInit {
     this.status.isopen = !this.status.isopen;
   }
 
-  ngOnInit(): void {
+  public changeListener(event) {
+    // For user profile update onSubmit.
+    this.files = event.srcElement.files;
+
+    // Preview uploaded image
+    var reader = new FileReader();
+    var image = this.element.nativeElement.querySelector('.image');
+
+    reader.onload = function(e) {
+      var src = reader.result;
+      image.src = src;
+    }
+
+    reader.readAsDataURL(event.target.files[0]);
   }
+
+  public onSubmit() {
+    this.submmitted = true;
+    
+    this.userService.update(this.currentUser, this.files)
+        .catch(error => Observable.throw(error))
+        .subscribe(
+          data => {
+            // Alert user information update successfully
+            this.alertService.success('更新成功！');
+
+            // Refresh currentUser info in localStage
+            let returnProfile = data.data;
+            let refreshedUser = new User(
+              returnProfile.id, returnProfile.owner, returnProfile.nickname,
+              returnProfile.gender, returnProfile.addr, returnProfile.img_heading
+            );
+            localStorage.setItem('currentUser', JSON.stringify(refreshedUser));
+
+            this.router.navigate([this.returnedUrl]);
+          },
+          error => {
+            this.alertService.error(error);
+          }
+        )
+  }
+
+  ngOnInit(): void {
+    this.genders = GENDERS;
+  }
+
 }

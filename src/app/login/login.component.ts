@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+
+import { User } from '../_models';
 import { AlertService, AuthenticationService } from '../_services/index';
-import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { UserService } from '../_services/index';
 
 @Component({
   moduleId: module.id,
-  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private alterService: AlertService,
     private userService: UserService,
-    private http: Http
   ) { }
 
   ngOnInit() {
@@ -41,7 +40,8 @@ export class LoginComponent implements OnInit {
           this.userService.getUser().subscribe(
             resp => {
               if( resp && resp.data && resp.data.profile){
-                let currentUser = resp.data.profile;
+                let profile = resp.data.profile;
+                const currentUser = new User(profile.id, profile.owner, profile.nickname, profile.gender, profile.addr, profile.img_heading);
                 localStorage.setItem('currentUser', JSON.stringify(currentUser));
                 this.router.navigate([this.returnUrl]);
               }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { FormsModule} from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, BaseRequestOptions } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { DropdownModule } from 'ng2-bootstrap/dropdown';
@@ -29,8 +29,9 @@ import { AuthGuard } from './_guards/index';
 // used to create fack backend
 import { fakeBackendProvider } from './_helpers/index'
 import { MockBackend, MockConnection } from '@angular/http/testing';
-import { BaseRequestOptions } from '@angular/http';
 
+// Modal Component
+import { ModalModule } from 'ng2-bootstrap/modal';
 
 @NgModule({
   imports: [
@@ -40,7 +41,8 @@ import { BaseRequestOptions } from '@angular/http';
     TabsModule.forRoot(),
     ChartsModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ModalModule.forRoot(),
   ],
   declarations: [
     AppComponent,
