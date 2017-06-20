@@ -1,13 +1,11 @@
-import { Component, ElementRef, OnInit, ViewContainerRef } from '@angular/core';
-import { Headers, Http, RequestOptions } from '@angular/http';
-import { ModalDirective } from 'ng2-bootstrap/modal/modal.component';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { error } from 'util';
-import { Router, ActivatedRoute } from '@angular/router'
 
-import { UserService, AlertService } from '../_services/index';
-import { User, Gender, GENDERS } from '../_models/index';
-import { baseUrl } from '../_settings/index'
+import { Gender, GENDERS, User } from '../_models/index';
+import { AlertService, UserService } from '../_services/index';
 
 @Component({
   selector: 'app-dashboard',

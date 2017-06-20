@@ -1,0 +1,116 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+button {
+    font-family: "Microsoft YaHei" ! important;
+}
+
+.pageone {
+    height: 440px;
+}
+
+.pageone-bg {
+    height: 440px;
+    width: 95%;
+    position: absolute;
+    background-position: center center;
+    background: cover;
+}
+
+// #pageonebg {
+//     background-image: url("../../img/farmbackground.jpg");
+// }
+.headh1content {
+    margin-top: 150px;
+    line-height: 75px;
+}
+
+.title-text {
+    margin-left: 50pt;
+}
+
+.headfontsize h1 {
+    font-size: 50pt;
+    color: #ffffff;
+}
+
+.headfontsize p {
+    color: #ffffff;
+}
+
+.pagetwo {
+    padding: 2px 0 0 2px;
+    height: auto;
+    position: relative;
+}
+
+.pagetwo-text {
+    width: 100%;
+    text-align: center;
+}
+
+.pagetwo-text-h1 {
+    letter-spacing: 2px;
+    padding: 20px 20px;
+}
+
+.pagetwo-farms {
+    float: left;
+    background: #ffffff;
+    padding: 0 2px 2px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.pagetwo-farms>a {
+    width: 100%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    position: relative;
+}
+
+.farmicon h3 {
+    margin-top: 120px;
+    color: #ffffff;
+}
+
+.farmicon h2 {
+    color: #ffffff;
+}
+
+.farmicon {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #fff;
+    opacity: 0;
+}
+
+.farmicon:hover {
+    background: #1eb450;
+    opacity: 0.9;
+    transition: opacity 0.5s;
+    -webkit-transition: opacity 0.5s;
+}
+
+.pagetwobtn {
+    width: 100%;
+    margin: 0% auto;
+    text-align: center;
+}
+
+.pagetwobtn>a {
+    font-size: 25px;
+}
+
+#pagetwo-go {
+    margin: 50px;
+}

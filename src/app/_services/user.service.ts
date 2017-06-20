@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable} from 'rxjs/Rx';
+
 import { User } from '../_models/index';
 import * as globals from '../_settings/index';
 
@@ -55,7 +56,7 @@ export class UserService {
   }
 
   // private helper methods
-  private jwt() {
+  public jwt() {
     // create authentication header with jwt token
     let token = JSON.parse(localStorage.getItem('token'));
     if (token) {

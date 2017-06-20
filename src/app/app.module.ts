@@ -54,7 +54,7 @@ import { ModalModule } from 'ng2-bootstrap/modal';
     AlertCompnent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   providers: [{
     provide: LocationStrategy,

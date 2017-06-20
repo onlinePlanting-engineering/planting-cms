@@ -36,6 +36,20 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLinkActive="active" [routerLink]="['/dashboard']"><i class="icon-speedometer"></i> 主页 </a>
                 </li>
+                <li class="nav-item nav-dropdown" routerLinkActive="open">
+                    <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> 农场信息</a>
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/farms/myfarms']"><i class="icon-puzzle"></i> 我的农场</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/farms/lands']"><i class="icon-puzzle"></i> 租地</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/farms/seends']"><i class="icon-puzzle"></i> 种子</a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </div>

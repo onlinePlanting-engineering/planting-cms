@@ -1,0 +1,21 @@
+<div class="pageone">
+    <div class="pageone-bg" id="pageonebg" [ngStyle]="{'background-image': 'url(' + farmItem.homeUrl + ')'}">
+        <!--<img [src]="farm.homeUrl">-->
+    </div>
+
+    <div class="containner">
+        <div class="row">
+            <div class="title-text">
+                <div class="col-md-12 headfontsize">
+                    <h1 class="headh1content">
+                        {{ farmItem.name }}<br>
+                    </h1>
+                    <p>{{ farmItem.subject }}</p>
+                    <p class="btn-app-store">
+                        <a class="btn btn-success btn-md" routerLink='/farms/myfarms/{{farmItem.id}}' routerLinkActive="active">进入农场 »</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
