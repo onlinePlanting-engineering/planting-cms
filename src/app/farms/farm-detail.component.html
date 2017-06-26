@@ -1,3 +1,56 @@
-<h1>
-    {{farmItem?.name}}
-</h1>
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12 mb-2">
+            <!-- Nav tabs -->
+            <tabset>
+                <tab>
+                    <template tabHeading><i class="icon-info"></i> 基本信息</template>
+                    <div class="farm-info container">
+                        <div class="row">
+                            <div class="col-xs-4 col-md-2 info-label">
+                                <label>农场名称：</label>
+                            </div>
+                            <div class="col-xs-8 col-md-10">
+                                <p>{{farmItem.name}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4 col-md-2 info-label">
+                                <label>农场地址：</label>
+                            </div>
+                            <div class="col-xs-8 col-md-10">
+                                <p>{{farmItem.addr}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4 col-md-2 info-label">
+                                <label>农场主电话：</label>
+                            </div>
+                            <div class="col-xs-8 col-md-10">
+                                <p>{{farmItem.owner}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4 col-md-2 info-label">
+                                <label>农场须知：</label>
+                            </div>
+                            <div class="col-xs-8 col-md-10">
+                                <div [innerHTML]="farmNotice"></div>
+                            </div>
+                        </div>
+                    </div>
+                </tab>
+                <tab>
+                    <template tabHeading><i class="fa fa-comments"></i> 评论</template>
+                    <farm-comment-list [farm]="farmItem"></farm-comment-list>
+                </tab>
+                <tab>
+                    <template tabHeading><i class="fa fa-file-image-o"></i> 图片</template> 4. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                    qui officia deserunt mollit anim id est laborum.
+                </tab>
+            </tabset>
+        </div>
+    </div>
+    <!--/.row-->
+</div>

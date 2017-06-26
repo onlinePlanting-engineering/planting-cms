@@ -32,17 +32,17 @@ export class FarmsComponent implements OnInit {
             farmlist.forEach(x => {
               let imgs :ImgUrl[] = [];
               for(let item of x.imgs) {
-                imgs.push(new ImgUrl(item.url));
+                imgs.push(new ImgUrl(`${baseUrl}${item.url}`));
               }
 
               let comments: CommentUrl[] = [];
               for(let item of x.comments) {
-                comments.push(item.url);
+                comments.push(new CommentUrl(`${baseUrl}${item.url}`));
               }
 
               let lands: LandUrl[] = [];
               for(let item of x.lands){
-                lands.push(item.url);
+                lands.push(new LandUrl(`${baseUrl}${item.url}`));
               }
 
               let farm = new Farm(x.id, x.name, x.owner, x.price, x.subject, x.addr, 

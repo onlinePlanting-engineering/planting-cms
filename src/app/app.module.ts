@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { FormsModule} from '@angular/forms';
 import { HttpModule, BaseRequestOptions } from '@angular/http';
+import { MomentModule } from 'angular2-moment';
+
 
 import { AppComponent } from './app.component';
 import { DropdownModule } from 'ng2-bootstrap/dropdown';
@@ -43,6 +45,7 @@ import { ModalModule } from 'ng2-bootstrap/modal';
     FormsModule,
     HttpModule,
     ModalModule.forRoot(),
+    MomentModule
   ],
   declarations: [
     AppComponent,

@@ -19,7 +19,12 @@ export class FarmsService {
 
   getById(id: number){
     return this.http.get(`${baseUrl}/api/farms/${id}/`, this.userService.jwt())
-               .map((response: Response) => { response.json()});
+               .map((response: Response) => response.json());
+  }
+
+  // Get notice content by specific farm
+  getNotice(url: string){
+    return this.http.get(url).map((response: Response) => response.text());
   }
 
 }
