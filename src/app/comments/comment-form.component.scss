@@ -1,0 +1,44 @@
+.reply-textarea {
+    margin-left: 85px;
+    overflow: hidden;
+    padding: 10px;
+    border: 1px solid #eee;
+    background-color: #f7f7f7;
+}
+
+.reply-textarea .inner {
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.reply-textarea .inner .wrap-textarea {
+    margin: 10px;
+}
+
+.reply-textarea .inner .wrap-textarea .reply-input {
+    display: block;
+    width: 100%;
+    height: 60px;
+    border: none;
+    line-height: 20px;
+    font-size: 12px;
+    resize: none;
+}
+
+.reply-textarea .operate-box {
+    margin-top: 10px;
+    text-align: right;
+}
+
+.reply-textarea .operate-box .txt-countdown {
+    margin-right: 10px;
+    color: #999;
+    display: inline-block;
+}
+
+.reply-textarea .operate-box .reply-submit {
+    padding: 0 30px;
+    margin-right: 0;
+    border-radius: 2px;
+    font-family: "Microsoft YaHei";
+}

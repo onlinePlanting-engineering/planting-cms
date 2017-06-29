@@ -56,15 +56,21 @@ export class UserService {
   }
 
   // private helper methods
-  public jwt() {
+  public jwt(content_type?: string) {
     // create authentication header with jwt token
     let token = JSON.parse(localStorage.getItem('token'));
     if (token) {
       let headers = new Headers({'Authorization': 'Token ' + token});
       headers.append('Accept', 'application/json');
+      
+      if (content_type == 'application/json') {
+        headers.append('Content-Type', content_type);
+      }
+
       // headers.append('Content-Type', 'multipart/form-data');  
       // Above line must be deleted, or the boundary will not be set automatically and the sever will recieve nothing
       return new RequestOptions({headers: headers});
     }
   }
+
 }

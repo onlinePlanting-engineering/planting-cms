@@ -1,0 +1,22 @@
+<div class="reply-box">
+    <div class="reply-content">
+        <img [src]="baseUrl + comment?.user?.profile?.img_heading" class="avatar" alt="">
+        <div class="post-comments">
+            <div class="reply-header">
+                <p class="meta">{{ comment.timestamp | amTimeAgo }} <a href="#">{{ comment?.user.profile.nickname || comment?.user.profile.owner  }}</a> 回复说 : <i class="pull-right"></i></p>
+            </div>
+            <div class="reply-content">
+                <p>
+                    {{ comment.content }}
+                </p>
+            </div>
+            <div class="reply-botton">
+                <button (click)="toggleBtn()" target="_self" class="reply-btn btn btn-default">回复</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="reply-form" [@slideInOut]="isCollapsed()">
+        <comment-form [currentComment]="comment"></comment-form>
+    </div>
+</div>

@@ -58,7 +58,7 @@
                         <div class="comment-head">
                             <h6 class="comment-name"><a href="http://creaticode.com/blog">{{comment.user.profile.nickname || comment.user.profile.owner}}</a></h6>
                             <span>{{ comment.timestamp | amTimeAgo }}</span>
-                            <a href="#">
+                            <a [routerLink]="'/comments/' + comment.id">
                                 <i class="fa fa-commenting-o"> {{ comment.reply_count }}</i>
                             </a>
                             <a href="#">

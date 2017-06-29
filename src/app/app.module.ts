@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LocationStrategy, HashLocationStrategy, CommonModule } from '@angular/common';
 import { FormsModule} from '@angular/forms';
 import { HttpModule, BaseRequestOptions } from '@angular/http';
 import { MomentModule } from 'angular2-moment';
+import { StarRatingModule } from 'angular-star-rating';
 
 
 import { AppComponent } from './app.component';
@@ -25,7 +26,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { AlertCompnent } from './_directives/index';
-import { AlertService, AuthenticationService, UserService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, CommentService } from './_services/index';
 import { AuthGuard } from './_guards/index';
 
 // used to create fack backend
@@ -34,6 +35,12 @@ import { MockBackend, MockConnection } from '@angular/http/testing';
 
 // Modal Component
 import { ModalModule } from 'ng2-bootstrap/modal';
+
+import { CommentReplyComponent } from './comments/comment-reply.component';
+
+
+import { CommentDetailComponent } from './comments/comment-detail.component';
+import { CommentFormComponent } from './comments/comment-form.component';
 
 @NgModule({
   imports: [
@@ -45,7 +52,9 @@ import { ModalModule } from 'ng2-bootstrap/modal';
     FormsModule,
     HttpModule,
     ModalModule.forRoot(),
-    MomentModule
+    MomentModule,
+    CommonModule,
+    StarRatingModule
   ],
   declarations: [
     AppComponent,
@@ -58,6 +67,9 @@ import { ModalModule } from 'ng2-bootstrap/modal';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    CommentDetailComponent,
+    CommentReplyComponent,
+    CommentFormComponent
   ],
   providers: [{
     provide: LocationStrategy,
@@ -67,6 +79,8 @@ import { ModalModule } from 'ng2-bootstrap/modal';
   AlertService,
   AuthenticationService,
   UserService,
+  CommentService,
+
 
   // providers used to create fake backend
   fakeBackendProvider,

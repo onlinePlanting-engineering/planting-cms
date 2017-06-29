@@ -1,0 +1,39 @@
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="blog-comment">
+                <h3 class="text-success">评论</h3>
+                <hr/>
+                <ul class="comments">
+                    <li class="clearfix">
+                        <div class="comment-detail">
+                            <img [src]="comment?.user?.profile?.img_heading" class="avatar" alt="">
+                            <div class="post-comments">
+                                <p class="meta">{{ comment?.timestamp | amTimeAgo }} <a href="#"> {{ comment?.user.profile.nickname || comment?.user.profile.owner }} </a> 评论 : </p>
+                                <p *ngIf="comment?.grade">
+                                    <star-rating-comp [labelPosition]="'left'" [starType]="'svg'" [readOnly]="true" [rating]="comment?.grade">
+                                    </star-rating-comp>
+                                </p>
+                                <p>
+                                    {{ comment?.content }}
+                                </p>
+                            </div>
+                        </div>
+
+                        <comment-form [currentComment]="comment"></comment-form>
+
+                        <div class="reply-items">
+                            <ul class="comments">
+                                <li class="clearfix" *ngFor="let reply of comment?.replies">
+                                    <div class="reply-2-reply">
+                                        <comment-reply [currentComment]="reply"></comment-reply>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

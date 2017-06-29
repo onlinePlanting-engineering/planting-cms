@@ -1,0 +1,13 @@
+<form (ngSubmit)="onSubmit()" #replyForm="ngForm">
+    <div class="reply-textarea">
+        <div class="inner">
+            <div class="wrap-textarea">
+                <textarea #contentRef name="content" required maxlength="200" minlength="1" [(ngModel)]="val" class="reply-input f-textarea" placeholder="回复: {{ comment?.user.profile.nickname || comment?.user.profile.owner }}" ngModel></textarea>
+            </div>
+        </div>
+        <div class="operate-box">
+            <span class="txt-countdown"> 还可以输入 {{ 200 - val.length }} 字 </span>
+            <button type="submit" class="reply-submit btn btn-success btn-sm" [disabled]="replyForm.invalid">提交</button>
+        </div>
+    </div>
+</form>

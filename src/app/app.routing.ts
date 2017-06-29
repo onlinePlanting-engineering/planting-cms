@@ -6,6 +6,8 @@ import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { AuthGuard } from './_guards/index';
 
+import { CommentDetailComponent } from './comments/comment-detail.component'
+
 //Layouts
 import { FullLayoutComponent } from './layouts/full-layout.component';
 
@@ -29,6 +31,10 @@ export const routes: Routes = [
       {
         path: 'farms',
         loadChildren: './farms/farms.module#FarmsModule'
+      },
+      {
+        path: 'comments/:id',
+        component: CommentDetailComponent
       }
     ],
     canActivate: [AuthGuard]
