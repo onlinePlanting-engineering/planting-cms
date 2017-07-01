@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Rx'
 import { User } from '../_models/index';
 import { AlertService } from '../_services/index';
 import { FarmsService } from './farms.service';
-import { Farm, ImgUrl, CommentUrl, LandUrl } from './farm.model';
+import { Farm, CommentUrl, LandUrl, ImgGroupUrl } from '../_models';
 
 import {baseUrl} from '../_settings/index';
 
@@ -30,9 +30,9 @@ export class FarmsComponent implements OnInit {
           data => {
             let farmlist = data.data;
             farmlist.forEach(x => {
-              let imgs :ImgUrl[] = [];
+              let img_group_urls :ImgGroupUrl[] = [];
               for(let item of x.imgs) {
-                imgs.push(new ImgUrl(`${baseUrl}${item.url}`));
+                img_group_urls.push(new ImgGroupUrl(`${baseUrl}${item.url}`));
               }
 
               let comments: CommentUrl[] = [];
@@ -46,7 +46,7 @@ export class FarmsComponent implements OnInit {
               }
 
               let farm = new Farm(x.id, x.name, x.owner, x.price, x.subject, x.addr, 
-              `${baseUrl}${x.home_img_url}`, x.notice, x.content, comments, lands, imgs);
+              `${baseUrl}${x.home_img_url}`, x.notice, x.content, comments, lands, img_group_urls);
               this.farms.push(farm);
 
               // Store farm list to localStorage

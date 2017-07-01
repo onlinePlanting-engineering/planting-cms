@@ -11,7 +11,7 @@
                                 <label>农场名称：</label>
                             </div>
                             <div class="col-xs-8 col-md-10">
-                                <p>{{farmItem.name}}</p>
+                                <p>{{farmItem?.name}}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -19,7 +19,7 @@
                                 <label>农场地址：</label>
                             </div>
                             <div class="col-xs-8 col-md-10">
-                                <p>{{farmItem.addr}}</p>
+                                <p>{{farmItem?.addr}}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -27,7 +27,7 @@
                                 <label>农场主电话：</label>
                             </div>
                             <div class="col-xs-8 col-md-10">
-                                <p>{{farmItem.owner}}</p>
+                                <p>{{farmItem?.owner}}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -42,12 +42,15 @@
                 </tab>
                 <tab>
                     <template tabHeading><i class="fa fa-comments"></i> 评论</template>
-                    <farm-comment-list [farm]="farmItem"></farm-comment-list>
+                    <farm-comment-list *ngIf="farmItem" [farm]="farmItem"></farm-comment-list>
                 </tab>
                 <tab>
-                    <template tabHeading><i class="fa fa-file-image-o"></i> 图片</template> 4. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                    qui officia deserunt mollit anim id est laborum.
+                    <template tabHeading><i class="fa fa-file-image-o"></i> 图片</template>
+
+                    <div class="image-group-container" *ngFor="let imgGroup of imgGroups">
+                        <image-list *ngIf="imgGroup" [imgGroup]="imgGroup"></image-list>
+                    </div>
+
                 </tab>
             </tabset>
         </div>

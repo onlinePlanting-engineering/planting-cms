@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Farm } from './farm.model';
+import { Farm } from '../_models/index';
 import { FarmsService } from './farms.service';
 
 @Component({

@@ -1,12 +1,10 @@
+import { ImgGroupUrl } from './image';
+
 export class CommentUrl{
     constructor(public url: string){};
 }
 
 export class LandUrl {
-    constructor(public url: string){}
-}
-
-export class ImgUrl {
     constructor(public url: string){}
 }
 
@@ -23,6 +21,6 @@ export class Farm {
         public content?: string,
         public comments?: CommentUrl[],
         public lands?: LandUrl[],
-        public imgs?: ImgUrl[],
+        public img_group_urls?: ImgGroupUrl[],
     ){};
 }

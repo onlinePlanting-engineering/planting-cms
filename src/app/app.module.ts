@@ -42,6 +42,9 @@ import { CommentReplyComponent } from './comments/comment-reply.component';
 import { CommentDetailComponent } from './comments/comment-detail.component';
 import { CommentFormComponent } from './comments/comment-form.component';
 
+import { ImageModalModule } from './images/image.module';
+
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import { CommentFormComponent } from './comments/comment-form.component';
     ModalModule.forRoot(),
     MomentModule,
     CommonModule,
-    StarRatingModule
+    StarRatingModule,
+    ImageModalModule
   ],
   declarations: [
     AppComponent,
@@ -69,7 +73,7 @@ import { CommentFormComponent } from './comments/comment-form.component';
     RegisterComponent,
     CommentDetailComponent,
     CommentReplyComponent,
-    CommentFormComponent
+    CommentFormComponent,
   ],
   providers: [{
     provide: LocationStrategy,

@@ -6,7 +6,7 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-import { Farm } from './farm.model';
+import { Farm } from '../_models/index';
 import { CommentService, AlertService } from '../_services/index';
 
 @Component({

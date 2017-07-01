@@ -28,6 +28,8 @@ export class CommentFormComponent  {
         this.commentService.create(body, this.comment.type, this.comment.object_id, this.comment.id)
             .subscribe(data => {
                 console.log(data);
+                this.val = '';
+                window.location.reload();
             }, error => {
                 this.alertService.error(error);
             })

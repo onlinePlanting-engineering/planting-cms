@@ -10,13 +10,16 @@ import { FarmsComponent } from './farms.component';
 import { FarmDetailComponent } from './farm-detail.component';
 import { FarmCommentsComponent } from './farm-comments.component';
 
+import { ImageModalModule } from '../images/image.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FarmsRoutingModule,
     TabsModule,
     MomentModule,
-    StarRatingModule
+    StarRatingModule,
+    ImageModalModule
   ],
   declarations: [
     FarmsComponent,
