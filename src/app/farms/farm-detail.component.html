@@ -48,7 +48,16 @@
                     <template tabHeading><i class="fa fa-file-image-o"></i> 图片</template>
 
                     <div class="image-group-container" *ngFor="let imgGroup of imgGroups">
-                        <image-list *ngIf="imgGroup" [imgGroup]="imgGroup"></image-list>
+                        <div class="row">
+                            <div class="image-list-left col-md-2">
+                                <p [innerHTML]="imgGroup.desc"></p>
+                                <p class="help-block"> 上传时间: {{imgGroup.timestamp | date:'short'}} </p>
+                            </div>
+                            <div class="image-list-content col-md-10">
+                                <image-list *ngIf="imgGroup" [imgGroup]="imgGroup"></image-list>
+                            </div>
+                        </div>
+                        <hr/>
                     </div>
 
                 </tab>

@@ -1,58 +1,34 @@
-.ng-gallery {
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.popup-gallery {
     width: 100%;
-    display: inline-block;
-}
-
-.img-box {
-    float: left;
-}
-
-img.ng-thumb {
-    height: 100px;
-    float: left;
-    display: block;
-    cursor: pointer;
-    margin: 2px 2px 0 0;
-}
-
-.img-box {
-    margin-top: 10px;
+    height: 124px;
+    margin: 5px 0px;
 }
 
 .item-img-wrap {
-    position: relative;
-    text-align: center;
-    overflow: hidden;
     float: left;
+    position: relative;
+    width: 160px;
+    height: 120px;
+    margin: 2px;
 }
 
 .item-img-wrap img {
-    -moz-transform: all 200ms linear;
-    -o-transform: all 200ms linear;
-    -webkit-transform: all 200ms linear;
-    transform: all 200ms linear;
     width: 100%;
-}
-
-a.show-image {
-    cursor: pointer;
-}
-
-.item-img-wrap a.more {
-    position: absolute;
-    font-size: 30px;
-    color: white;
-    top: 32px;
-    left: 40px;
+    height: 120px;
 }
 
 
 /******* image hover effect ***********/
 
-.item-img-overlay {
+.item-img-wrap .item-img-overlay {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 160px;
+    height: 120px;
     left: 0;
     top: 0;
 }
@@ -75,6 +51,7 @@ a.show-image {
 
 .item-img-wrap:hover .item-img-overlay span {
     opacity: 1;
+    cursor: pointer;
 }
 
 .item-img-wrap:hover img {
@@ -83,6 +60,22 @@ a.show-image {
     -ms-transform: scale(1.1);
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
+}
+
+.item-img-wrap:hover .item-img-overlay {
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.item-img-wrap .more {
+    position: absolute;
+    left: 80px;
+    top: 60px;
+    font-size: 25px;
+    color: white;
 }
 
 .ng-overlay {

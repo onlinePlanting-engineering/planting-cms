@@ -63,6 +63,7 @@ export class FarmDetailComponent implements OnInit, OnDestroy{
             let img_group_urls: ImgGroupUrl[] = this.farmItem.imgs;
             img_group_urls.forEach(group_url => {
                 let url = `${baseUrl}${group_url.url}`;
+                console.log('image group url:', url);
                 this.imageService.getGroupInfo(url).subscribe(
                     data => {
                         this.imgGroups.push(data);

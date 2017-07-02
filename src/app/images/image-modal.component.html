@@ -1,28 +1,28 @@
 <div class="row" *ngIf="showRepeat">
     <div class="col-md-12">
-        <div class="row">
-            <div class="col-sm-2 img-box" *ngFor="let i of modalImages; let index = index">
-                <div class="item-img-wrap" *ngIf="index <= 2">
+        <div class="popup-gallery">
+            <div class="img-box" *ngFor="let i of modalImages; let index = index">
+                <div class="item-img-wrap">
                     <img src="{{ i.img | serialize }}" class="img-resposive" alt="Image {{ index + 1 }}" />
-                    <div class="item-img-overlay">
-                        <a (click)="openGallery(index)" class="show-image">
+                    <div class="item-img-overlay ">
+                        <a (click)="openGallery(index) ">
                             <span></span>
                         </a>
                     </div>
-                    <a class="more" *ngIf="index==2" (click)="OpenImageModel(i.img, modalImages)"> +{{modalImages.length - 2}} </a>
+                    <!--<a class="more " *ngIf="index==2 " (click)="OpenImageModel(i.img, modalImages) "> +{{modalImages.length - 2}} </a>-->
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="ng-overlay" *ngIf="opened">
-    <div class="ng-gallery-content">
-        <div class="uil-ring-css" *ngIf="loading">
+<div class="ng-overlay " *ngIf="opened ">
+    <div class="ng-gallery-content ">
+        <div class="uil-ring-css " *ngIf="loading ">
             <div></div>
         </div>
-        <a class="close-popup" (click)="closeGallery()"><i class="fa fa-close"></i></a>
-        <a class="nav-left" *ngIf="modalImages.length >1" (click)="prevImage()"><i class="fa fa-angle-left"></i></a>
+        <a class="close-popup " (click)="closeGallery() "><i class="fa fa-close "></i></a>
+        <a class="nav-left " *ngIf="modalImages.length>1" (click)="prevImage()"><i class="fa fa-angle-left"></i></a>
         <img *ngIf="!loading" src="{{imgSrc | serialize}}" (click)="nextImage()" class="effect" />
         <a class="nav-right" *ngIf="modalImages.length >1" (click)="nextImage()"><i class="fa fa-angle-right"></i></a>
         <span class="info-text">{{ currentImageIndex + 1 }}/{{ modalImages.length }} - Image {{currentImageIndex+1}}</span>

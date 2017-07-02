@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { LocationStrategy, HashLocationStrategy, CommonModule } from '@angular/common';
 import { FormsModule} from '@angular/forms';
@@ -79,6 +79,7 @@ import { ImageModalModule } from './images/image.module';
     provide: LocationStrategy,
     useClass: HashLocationStrategy,
   },
+  { provide: LOCALE_ID, useValue: "zh-CN" },
   AuthGuard,
   AlertService,
   AuthenticationService,
