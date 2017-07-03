@@ -23,8 +23,13 @@ export class FarmsService {
   }
 
   // Get notice content by specific farm
-  getNotice(url: string){
+  getHtmlContent(url: string){
     return this.http.get(url).map((response: Response) => response.text());
+  }
+
+  update(id: number, data: any) {
+    return this.http.put(`${baseUrl}/api/farms/${id}/`, data, this.userService.jwt('application/json'))
+               .map((response: Response) => response.json());
   }
 
 }

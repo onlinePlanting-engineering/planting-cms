@@ -16,4 +16,22 @@ label {
 
 .image-list-left {
     text-align: center;
+    color: lightgray;
+}
+
+.info-header {
+    width: 100%;
+    height: 50px;
+}
+
+.info-header>button {
+    float: right;
+    margin-right: 50px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.info-body {
+    width: 100%;
+    height: auto;
 }

@@ -24,7 +24,10 @@ export class FarmDetailComponent implements OnInit, OnDestroy{
     private farmId: number;
     private routeSub: any;
     public farmNotice: any;
+    public farmContent: any;
     public imgGroups: any[] = [];
+
+    public is_form_display: boolean = false;
 
     constructor(private route: ActivatedRoute, private farmService: FarmsService, 
         private imageService: ImageService, private alertService: AlertService) {
@@ -56,7 +59,11 @@ export class FarmDetailComponent implements OnInit, OnDestroy{
 
     initialize(){
         if(this.farmItem && this.farmItem.notice){
-            this.farmService.getNotice(this.farmItem.notice).subscribe(data => this.farmNotice = data);
+            this.farmService.getHtmlContent(this.farmItem.notice).subscribe(data => this.farmNotice = data);
+        }
+
+        if(this.farmItem && this.farmItem.content){
+            this.farmService.getHtmlContent(this.farmItem.content).subscribe(data => this.farmContent = data);
         }
 
         if(this.farmItem && this.farmItem.imgs) {
@@ -77,6 +84,10 @@ export class FarmDetailComponent implements OnInit, OnDestroy{
                 )
             });
         }
+    }
+
+    showForm(){
+        this.is_form_display = true;
     }
 
     ngOnDestroy(){

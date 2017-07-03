@@ -27,6 +27,7 @@
         "@angular/router": "3.4.9",
         "@angular/upgrade": "2.4.9",
         "angular-star-rating": "^3.0.0",
+        "angular2-froala-wysiwyg": "^2.6.0",
         "angular2-image-popup": "^1.1.2",
         "angular2-modal": "^2.0.3",
         "angular2-moment": "^1.4.0",

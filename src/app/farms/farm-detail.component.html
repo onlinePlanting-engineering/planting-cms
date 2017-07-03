@@ -5,45 +5,62 @@
             <tabset>
                 <tab>
                     <template tabHeading><i class="icon-info"></i> 基本信息</template>
-                    <div class="farm-info container">
-                        <div class="row">
-                            <div class="col-xs-4 col-md-2 info-label">
-                                <label>农场名称：</label>
-                            </div>
-                            <div class="col-xs-8 col-md-10">
-                                <p>{{farmItem?.name}}</p>
-                            </div>
+                    <div class="farm-info" *ngIf="!is_form_display">
+                        <div class="info-header">
+                            <button class="btn btn-default" (click)="showForm()"><i class="fa fa-fw fa-pencil-square-o"></i>编辑</button>
+
                         </div>
-                        <div class="row">
-                            <div class="col-xs-4 col-md-2 info-label">
-                                <label>农场地址：</label>
+                        <div class="info-body">
+                            <div class="row">
+                                <div class="col-xs-4 col-md-2 info-label">
+                                    <label>农场名称：</label>
+                                </div>
+                                <div class="col-xs-8 col-md-10">
+                                    <p>{{farmItem?.name}}</p>
+                                </div>
                             </div>
-                            <div class="col-xs-8 col-md-10">
-                                <p>{{farmItem?.addr}}</p>
+                            <div class="row">
+                                <div class="col-xs-4 col-md-2 info-label">
+                                    <label>农场地址：</label>
+                                </div>
+                                <div class="col-xs-8 col-md-10">
+                                    <p>{{farmItem?.addr}}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-4 col-md-2 info-label">
-                                <label>农场主电话：</label>
+                            <div class="row">
+                                <div class="col-xs-4 col-md-2 info-label">
+                                    <label>农场主电话：</label>
+                                </div>
+                                <div class="col-xs-8 col-md-10">
+                                    <p>{{farmItem?.owner}}</p>
+                                </div>
                             </div>
-                            <div class="col-xs-8 col-md-10">
-                                <p>{{farmItem?.owner}}</p>
+                            <div class="row">
+                                <div class="col-xs-4 col-md-2 info-label">
+                                    <label>农场须知：</label>
+                                </div>
+                                <div class="col-xs-8 col-md-10">
+                                    <div [innerHTML]="farmNotice"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-4 col-md-2 info-label">
-                                <label>农场须知：</label>
-                            </div>
-                            <div class="col-xs-8 col-md-10">
-                                <div [innerHTML]="farmNotice"></div>
+                            <div class="row">
+                                <div class="col-xs-4 col-md-2 info-label">
+                                    <label>农场描述：</label>
+                                </div>
+                                <div class="col-xs-8 col-md-10">
+                                    <div [innerHTML]="farmContent"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <infor-form [farmItem]="farmItem" [farmNotice]="farmNotice" [farmContent]="farmContent" *ngIf="is_form_display"></infor-form>
                 </tab>
+
                 <tab>
                     <template tabHeading><i class="fa fa-comments"></i> 评论</template>
                     <farm-comment-list *ngIf="farmItem" [farm]="farmItem"></farm-comment-list>
                 </tab>
+
                 <tab>
                     <template tabHeading><i class="fa fa-file-image-o"></i> 图片</template>
 
